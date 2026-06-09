@@ -1,0 +1,10 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/"
+]
+[etherscan]
+sepolia = { key = "${81D293MZ1Q1I1C74Y4AQHFF5M7FQM9E2ZJ}" }

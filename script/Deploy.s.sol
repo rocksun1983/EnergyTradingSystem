@@ -19,7 +19,7 @@ contract Deploy is Script {
         MeterRegistry registry =
             new MeterRegistry();
 
-        EnergyMarketplace market =
+        EnergyMarketplace marketplace =
             new EnergyMarketplace(
                 address(token)
             );
@@ -36,7 +36,7 @@ contract Deploy is Script {
 
         console.log(
             "EnergyMarketplace:",
-            address(market)
+            address(marketplace)
         );
 
         vm.stopBroadcast();
