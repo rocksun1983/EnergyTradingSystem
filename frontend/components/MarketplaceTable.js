@@ -1,10 +1,11 @@
 export default function MarketplaceTable({
   listings,
+  buyEnergy,
 }) {
   return (
-    <div className="bg-white rounded-xl shadow p-6">
+    <div className="card mt-8">
 
-      <h2 className="text-xl font-bold mb-4">
+      <h2 className="text-2xl font-bold mb-6">
         Marketplace Listings
       </h2>
 
@@ -12,13 +13,13 @@ export default function MarketplaceTable({
 
         <thead>
 
-          <tr>
+          <tr className="text-left border-b border-slate-700">
 
             <th>ID</th>
             <th>Seller</th>
             <th>Units</th>
             <th>Price</th>
-            <th>Status</th>
+            <th>Action</th>
 
           </tr>
 
@@ -26,13 +27,16 @@ export default function MarketplaceTable({
 
         <tbody>
 
-          {listings.map((item) => (
-            <tr key={item.id}>
+          {listings.map(item => (
 
+            <tr
+              key={item.id}
+              className="border-b border-slate-800"
+            >
               <td>{item.id}</td>
 
               <td>
-                {item.seller.slice(0, 8)}
+                {item.seller.slice(0,10)}
               </td>
 
               <td>{item.units}</td>
@@ -40,12 +44,20 @@ export default function MarketplaceTable({
               <td>{item.price}</td>
 
               <td>
-                {item.active
-                  ? "Active"
-                  : "Sold"}
+
+                <button
+                  onClick={() =>
+                    buyEnergy(item.id)
+                  }
+                  className="bg-green-600 px-4 py-2 rounded-lg"
+                >
+                  Buy
+                </button>
+
               </td>
 
             </tr>
+
           ))}
 
         </tbody>
